@@ -4,13 +4,15 @@ import '../models/foodRecipe_models.dart';
 
 class FoodRecipeService {
   Future<FoodRecipe> fetchFoodRecipeInformation(String foodName) async {
-    const String apiId = '9d080be9';
-    const String appKey = '04f909cf7f5cb39fc01790387268d106';
+    const String type = 'public';
+    const String apiId = 'c5657407';
+    const String appKey = '2e1e159c3392b2ec3540039809587675';
     final Uri url = Uri(
         scheme: 'https',
         host: 'api.edamam.com',
         path: 'api/recipes/v2',
         queryParameters: {
+          'type': type,
           'q': foodName,
           'app_id': apiId,
           'app_key': appKey,
