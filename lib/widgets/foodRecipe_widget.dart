@@ -11,7 +11,10 @@ class FoodRecipeInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Food'),
+        title: Text('food'),
+      ),
+      body: Column(
+        children: [Text('Hello')],
       ),
     );
   }
