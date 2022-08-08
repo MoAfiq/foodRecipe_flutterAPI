@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-class Recipe {
-  Recipe({
+class FoodRecipe {
+  FoodRecipe({
     required this.from,
     required this.to,
     required this.count,
@@ -14,8 +14,9 @@ class Recipe {
   final RecipeLinks links;
   final List<Hit> hits;
 
-  factory Recipe.fromJson(String str) => Recipe.fromMap(json.decode(str));
-  factory Recipe.fromMap(Map<String, dynamic> json) => Recipe(
+  factory FoodRecipe.fromJson(String str) =>
+      FoodRecipe.fromMap(json.decode(str));
+  factory FoodRecipe.fromMap(Map<String, dynamic> json) => FoodRecipe(
         from: json["from"],
         to: json["to"],
         count: json["count"],
