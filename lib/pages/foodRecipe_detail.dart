@@ -28,11 +28,12 @@ class FoodRecipeDetail extends StatelessWidget {
             }
 
             if (state is FoodRecipeLoaded) {
-              return FoodRecipeInformation(foodName: state.foodRecipe);
+              return FoodRecipeInformation(foodRecipe: state.foodRecipe);
             }
 
-            return Text(
-                state is FoodRecipeError ? state.errorMessage : 'Unknown error');
+            return Text(state is FoodRecipeError
+                ? state.errorMessage
+                : 'Unknown error');
           },
         ),
       ),

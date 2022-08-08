@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+
 import '../models/foodRecipe_models.dart';
 
 class FoodRecipeService {
@@ -11,7 +12,7 @@ class FoodRecipeService {
         path: 'api/recipes/v2',
         queryParameters: {
           'q': foodName,
-          'api_id': apiId,
+          'app_id': apiId,
           'app_key': appKey,
         });
 
