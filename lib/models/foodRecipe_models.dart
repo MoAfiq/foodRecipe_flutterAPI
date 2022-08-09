@@ -89,7 +89,6 @@ class RecipeClass {
     required this.dishType,
     required this.totalNutrients,
     required this.totalDaily,
-    // required this.digest,
   });
   final String uri;
   final String label;
@@ -111,7 +110,6 @@ class RecipeClass {
   final List<String> dishType;
   final Map<String, Total> totalNutrients;
   final Map<String, Total> totalDaily;
-  // final List<Digest> digest;
   factory RecipeClass.fromJson(String str) =>
       RecipeClass.fromMap(json.decode(str));
 
@@ -140,49 +138,8 @@ class RecipeClass {
             .map((k, v) => MapEntry<String, Total>(k, Total.fromMap(v))),
         totalDaily: Map.from(json["totalDaily"])
             .map((k, v) => MapEntry<String, Total>(k, Total.fromMap(v))),
-        // digest: List<Digest>.from(json["digest"].map((x) => Digest.fromMap(x))),
       );
 }
-
-// class Digest {
-//   Digest({
-//     required this.label,
-//     required this.tag,
-//     required this.total,
-//     required this.hasRdi,
-//     required this.daily,
-//     // required this.unit,
-//     required this.sub,
-//   });
-//   final String label;
-//   final String tag;
-//   final double total;
-//   final bool hasRdi;
-//   final double daily;
-//   // final Unit unit;
-//   final List<Digest> sub;
-//   factory Digest.fromJson(String str) => Digest.fromMap(json.decode(str));
-//
-//   factory Digest.fromMap(Map<String, dynamic> json) => Digest(
-//         label: json["label"].toString(),
-//         tag: json["tag"].toString(),
-//         total: json["total"].toDouble(),
-//         hasRdi: json["hasRDI"],
-//         daily: json["daily"].toDouble(),
-//         // unit: unitValues.map[json["unit"]]!,
-//         sub: List<Digest>.from(json["sub"].map((x) => Digest.fromMap(x))),
-//       );
-// }
-
-// enum Unit { G, MG, UNIT_G, EMPTY, KCAL }
-//
-// final unitValues = EnumValues({
-//   "%": Unit.EMPTY,
-//   "g": Unit.G,
-//   "kcal": Unit.KCAL,
-//   "mg": Unit.MG,
-//   "µg": Unit.UNIT_G
-// });
 
 class Images {
   Images({

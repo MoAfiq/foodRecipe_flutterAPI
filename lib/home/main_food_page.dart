@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_recipe_project/home/food_page_body.dart';
 import 'package:food_recipe_project/utils/dimensions.dart';
 import 'package:food_recipe_project/widgets/big_text.dart';
-import 'package:food_recipe_project/widgets/small_text.dart';
 
 import '../pages/foodRecipe_detail.dart';
 import '../utils/colors.dart';
@@ -39,114 +38,101 @@ class _MainFoodPageState extends State<MainFoodPage> {
       children: [
         //Showing the header
         Container(
-          child: Container(
-            margin: EdgeInsets.only(
-                top: Dimensions.height45, bottom: Dimensions.height15),
-            padding: EdgeInsets.only(
-                left: Dimensions.width20, right: Dimensions.width20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    BigText(
-                      text: "Malaysia",
-                      color: AppColors.mainColor,
-                    ),
-                    Row(
-                      children: [
-                        SmallText(
-                          text: "Perak",
-                          color: Colors.black54,
-                        ),
-                        const Icon(Icons.arrow_drop_down_rounded),
-                      ],
-                    )
-                  ],
-                ),
-                Center(
-                  child: Container(
-                    width: Dimensions.height45,
-                    height: Dimensions.height45,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      color: AppColors.mainColor,
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.search),
-                      color: Colors.white,
-                      iconSize: Dimensions.iconSize24,
-                      onPressed: () {
-                        TextEditingController _dialogSearchController =
-                            TextEditingController();
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              Function()? _submit = _dialogSearchController
-                                      .text.isEmpty
-                                  ? null
-                                  : () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              FoodRecipeDetail(
-                                            foodName:
-                                                _dialogSearchController.text,
-                                          ),
-                                        ),
-                                      );
-                                    };
-                              return StatefulBuilder(
-                                builder: (context, setState) {
-                                  _dialogSearchController.addListener(
-                                    () {
-                                      setState(() {});
-                                    },
-                                  );
-                                  return AlertDialog(
-                                    scrollable: true,
-                                    title: const Text('Search Food Recipe'),
-                                    content: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Form(
-                                        child: Column(
-                                          children: <Widget>[
-                                            TextFormField(
-                                              controller:
-                                                  _dialogSearchController,
-                                              decoration: const InputDecoration(
-                                                labelText: 'Food Recipe',
-                                                icon: Icon(Icons.food_bank),
-                                              ),
-                                              textInputAction:
-                                                  TextInputAction.search,
-                                              onEditingComplete: _submit,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    actions: [
-                                      ElevatedButton(
-                                          child: const Text('Search'),
-                                          onPressed: _submit)
-                                    ],
-                                  );
-                                },
-                              );
-                            });
-                      },
-                    ),
+            child: Container(
+          margin: EdgeInsets.only(
+              top: Dimensions.height45, bottom: Dimensions.height15),
+          padding: EdgeInsets.only(
+              left: Dimensions.width20, right: Dimensions.width20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      BigText(
+                        text: "F00DIES",
+                        color: AppColors.mainColor,
+                      ),
+                      Icon(
+                        Icons.restaurant_menu,
+                        color: AppColors.mainColor,
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
+                  Text(
+                    'BEST RECIPES',
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.mainColor),
+                  ),
+                ],
+              ),
+              Center(
+                child: Container(
+                  width: Dimensions.height45,
+                  height: Dimensions.height45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius15),
+                    color: AppColors.mainColor,
+                  ),
+                  child: IconButton(
+                    icon: Icon(Icons.search),
+                    color: Colors.white,
+                    iconSize: Dimensions.iconSize24,
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              scrollable: true,
+                              title: Text('Search Food Recipe'),
+                              content: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Form(
+                                  child: Column(
+                                    children: <Widget>[
+                                      TextFormField(
+                                        controller: _controller,
+                                        decoration: const InputDecoration(
+                                          labelText: 'Food Recipe',
+                                          icon: Icon(Icons.food_bank),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              actions: [
+                                ElevatedButton(
+                                    child: Text('Search'),
+                                    onPressed: _isFoodNameEmpty
+                                        ? null
+                                        : () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    FoodRecipeDetail(
+                                                  foodName: _controller.text,
+                                                ),
+                                              ),
+                                            );
+                                          })
+                              ],
+                            );
+                          });
+                    },
+                  ),
+                ),
+              )
+            ],
           ),
-        ),
+        )),
 
         //Showing the body
-        const Expanded(
+        Expanded(
             child: SingleChildScrollView(
           child: FoodPageBody(),
         )),
