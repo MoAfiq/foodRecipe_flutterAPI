@@ -59,7 +59,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                           text: "Perak",
                           color: Colors.black54,
                         ),
-                        Icon(Icons.arrow_drop_down_rounded),
+                        const Icon(Icons.arrow_drop_down_rounded),
                       ],
                     )
                   ],
@@ -73,48 +73,67 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       color: AppColors.mainColor,
                     ),
                     child: IconButton(
-                      icon: Icon(Icons.search),
+                      icon: const Icon(Icons.search),
                       color: Colors.white,
                       iconSize: Dimensions.iconSize24,
                       onPressed: () {
+                        TextEditingController _dialogSearchController =
+                            TextEditingController();
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return AlertDialog(
-                                scrollable: true,
-                                title: Text('Search Food Recipe'),
-                                content: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Form(
-                                    child: Column(
-                                      children: <Widget>[
-                                        TextFormField(
-                                          decoration: const InputDecoration(
-                                            labelText: 'Food Recipe',
-                                            icon: Icon(Icons.food_bank),
+                              Function()? _submit = _dialogSearchController
+                                      .text.isEmpty
+                                  ? null
+                                  : () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              FoodRecipeDetail(
+                                            foodName:
+                                                _dialogSearchController.text,
                                           ),
-                                        )
-                                      ],
+                                        ),
+                                      );
+                                    };
+                              return StatefulBuilder(
+                                builder: (context, setState) {
+                                  _dialogSearchController.addListener(
+                                    () {
+                                      setState(() {});
+                                    },
+                                  );
+                                  return AlertDialog(
+                                    scrollable: true,
+                                    title: const Text('Search Food Recipe'),
+                                    content: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Form(
+                                        child: Column(
+                                          children: <Widget>[
+                                            TextFormField(
+                                              controller:
+                                                  _dialogSearchController,
+                                              decoration: const InputDecoration(
+                                                labelText: 'Food Recipe',
+                                                icon: Icon(Icons.food_bank),
+                                              ),
+                                              textInputAction:
+                                                  TextInputAction.search,
+                                              onEditingComplete: _submit,
+                                            )
+                                          ],
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                actions: [
-                                  ElevatedButton(
-                                      child: Text('Search'),
-                                      onPressed: _isFoodNameEmpty
-                                          ? null
-                                          : () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      FoodRecipeDetail(
-                                                    foodName: _controller.text,
-                                                  ),
-                                                ),
-                                              );
-                                            })
-                                ],
+                                    actions: [
+                                      ElevatedButton(
+                                          child: const Text('Search'),
+                                          onPressed: _submit)
+                                    ],
+                                  );
+                                },
                               );
                             });
                       },
@@ -127,7 +146,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
         ),
 
         //Showing the body
-        Expanded(
+        const Expanded(
             child: SingleChildScrollView(
           child: FoodPageBody(),
         )),

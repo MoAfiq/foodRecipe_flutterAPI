@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Food Recipe'),
+        title: const Text('Food Recipe'),
         centerTitle: true,
       ),
       body: Center(
@@ -62,7 +62,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ElevatedButton(
-              child: const Text('Search'),
               onPressed: _isFoodRecipeNameEmpty
                   ? null
                   : () {
@@ -75,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     },
+              child: const Text('Search'),
             )
           ],
         ),
