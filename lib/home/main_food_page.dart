@@ -4,6 +4,7 @@ import 'package:food_recipe_project/utils/dimensions.dart';
 import 'package:food_recipe_project/widgets/big_text.dart';
 import 'package:food_recipe_project/widgets/small_text.dart';
 
+import '../pages/foodRecipe_detail.dart';
 import '../utils/colors.dart';
 
 class MainFoodPage extends StatefulWidget {
@@ -14,6 +15,23 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+  late TextEditingController _controller;
+  bool _isFoodNameEmpty = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+    _controller.addListener(() {
+      setState(() => _isFoodNameEmpty = _controller.text.isEmpty);
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +68,56 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   child: Container(
                     width: Dimensions.height45,
                     height: Dimensions.height45,
-                    child: Icon(Icons.search,
-                        color: Colors.white, size: Dimensions.iconSize24),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius15),
                       color: AppColors.mainColor,
+                    ),
+                    child: IconButton(
+                      icon: Icon(Icons.search),
+                      color: Colors.white,
+                      iconSize: Dimensions.iconSize24,
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                scrollable: true,
+                                title: Text('Search Food Recipe'),
+                                content: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Form(
+                                    child: Column(
+                                      children: <Widget>[
+                                        TextFormField(
+                                          decoration: const InputDecoration(
+                                            labelText: 'Food Recipe',
+                                            icon: Icon(Icons.food_bank),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                actions: [
+                                  ElevatedButton(
+                                      child: Text('Search'),
+                                      onPressed: _isFoodNameEmpty
+                                          ? null
+                                          : () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      FoodRecipeDetail(
+                                                    foodName: _controller.text,
+                                                  ),
+                                                ),
+                                              );
+                                            })
+                                ],
+                              );
+                            });
+                      },
                     ),
                   ),
                 )
