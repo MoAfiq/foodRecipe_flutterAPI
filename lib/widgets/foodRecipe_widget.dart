@@ -9,12 +9,18 @@ class FoodRecipeInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('food'),
-      ),
-      body: Column(
-        children: [Text('Hello')],
+    return Card(
+      margin: EdgeInsets.all(15),
+      color: Colors.blue[200],
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          Text('${foodRecipe.to}, ${foodRecipe.count}',
+              style:
+                  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+        ],
       ),
     );
   }
