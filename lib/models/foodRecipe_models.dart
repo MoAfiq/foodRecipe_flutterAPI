@@ -148,7 +148,7 @@ class RecipeClass {
 
   @override
   String toString() {
-    return 'Recipe {name: $label, image: $image, rating: $dietLabels, totalTime: $totalTime';
+    return 'Recipe {name: $label, image: $image, cuisinType: $dietLabels, totalTime: $totalTime';
   }
 }
 
