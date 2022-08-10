@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipe_project/utils/colors.dart';
 import 'package:food_recipe_project/utils/dimensions.dart';
+import 'package:food_recipe_project/widgets/app_column.dart';
 import 'package:food_recipe_project/widgets/big_text.dart';
 import 'package:food_recipe_project/widgets/icon_and_text_widget.dart';
 import 'package:food_recipe_project/widgets/small_text.dart';
@@ -96,85 +97,84 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
         //list of food and images that are trending
-        Container(
-          height: 900,
-          child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      bottom: Dimensions.height10),
-                  child: Row(
-                    children: [
-                      //Image Section
-                      Container(
-                        width: 120,
-                        height: 120,
+
+        ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    //Image Section
+                    Container(
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white38,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage("assets/image/food2.jpg"))),
+                    ),
+                    //Text Container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.listViewTextContSize,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white38,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage("assets/image/food2.jpg"))),
-                      ),
-                      //Text Container
-                      Expanded(
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(Dimensions.radius20),
-                                bottomRight:
-                                    Radius.circular(Dimensions.radius20)),
-                            color: Colors.white,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: Dimensions.width10,
-                                right: Dimensions.width10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                BigText(text: "Nutritious Asian Meal"),
-                                SizedBox(
-                                  height: Dimensions.height10,
-                                ),
-                                SmallText(text: "With Chinese Fusion"),
-                                SizedBox(
-                                  height: Dimensions.height10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconAndTextWidget(
-                                        icon: Icons.circle_sharp,
-                                        text: "Normal",
-                                        iconColor: AppColors.iconColor1),
-                                    IconAndTextWidget(
-                                        icon: Icons.location_on,
-                                        text: "1.7km",
-                                        iconColor: AppColors.mainColor),
-                                    IconAndTextWidget(
-                                        icon: Icons.access_time_rounded,
-                                        text: "32min",
-                                        iconColor: AppColors.iconColor2)
-                                  ],
-                                )
-                              ],
-                            ),
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(Dimensions.radius20),
+                              bottomRight:
+                                  Radius.circular(Dimensions.radius20)),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimensions.width10,
+                              right: Dimensions.width10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BigText(text: "Nutritious Asian Meal"),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
+                              SmallText(text: "With Chinese Fusion"),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconAndTextWidget(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1),
+                                  IconAndTextWidget(
+                                      icon: Icons.location_on,
+                                      text: "1.7km",
+                                      iconColor: AppColors.mainColor),
+                                  IconAndTextWidget(
+                                      icon: Icons.access_time_rounded,
+                                      text: "32min",
+                                      iconColor: AppColors.iconColor2)
+                                ],
+                              )
+                            ],
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                );
-              }),
-        )
+                      ),
+                    )
+                  ],
+                ),
+              );
+            }),
       ],
     );
   }
@@ -237,56 +237,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ]),
               child: Container(
                 padding: EdgeInsets.only(top: 10, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Chinese Dishes"),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(5, (index) {
-                            return Icon(Icons.star,
-                                color: AppColors.mainColor, size: 15);
-                          }),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "4.5"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "1287"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "Comments"),
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                            icon: Icons.circle_sharp,
-                            text: "Normal",
-                            iconColor: AppColors.iconColor1),
-                        IconAndTextWidget(
-                            icon: Icons.location_on,
-                            text: "1.7km",
-                            iconColor: AppColors.mainColor),
-                        IconAndTextWidget(
-                            icon: Icons.access_time_rounded,
-                            text: "32min",
-                            iconColor: AppColors.iconColor2)
-                      ],
-                    ),
-                  ],
+                child: AppColumn(
+                  text: 'Chinese Fusion',
                 ),
               ),
             ),

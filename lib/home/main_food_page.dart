@@ -5,6 +5,7 @@ import 'package:food_recipe_project/widgets/big_text.dart';
 import 'package:food_recipe_project/widgets/small_text.dart';
 
 import '../utils/colors.dart';
+import 'food_page_body.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
