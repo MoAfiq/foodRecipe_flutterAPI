@@ -31,13 +31,20 @@ dependencies:
     sdk: flutter
   get: ^4.1.4
   dots_indicator: ^2.0.0
+  curved_navigation_bar: ^1.0.3
+  folding_cell: ^1.0.2
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   flutter_bloc: ^8.0.1
+<<<<<<< HEAD
+  google_fonts: ^3.0.1
+=======
   pull_to_refresh: ^2.0.0
+>>>>>>> f2d0300c92b5f9b001f652ccefb23c9e173f6c01
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +66,7 @@ flutter:
   assets:
       - assets/image/spaggheti.jpg
       - assets/image/food2.jpg
+      - assets/image/aboutus.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

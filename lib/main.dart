@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:food_recipe_project/home/main_food_page.dart';
+import 'package:food_recipe_project/pages/aboutus/aboutus_mainpage.dart';
+import 'package:food_recipe_project/pages/food/popular_recipe_details.dart';
+import 'package:food_recipe_project/pages/foodRecipe_detail.dart';
+import 'package:food_recipe_project/widgets/footer.dart';
+=======
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/home/main_food_page.dart';
 import 'package:food_recipe_project/states/foodRecipe_cubit.dart';
+>>>>>>> f2d0300c92b5f9b001f652ccefb23c9e173f6c01
 import 'package:get/get.dart';
 
 void main() {
-  runApp(
-    BlocProvider(
-      create: (context) => FoodRecipeCubit(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,8 +28,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainFoodPage(),
-      //home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: FoodRecipeDetail(
+        foodName: '',
+      ),
     );
   }
 }
