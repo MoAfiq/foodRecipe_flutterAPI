@@ -40,11 +40,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   flutter_bloc: ^8.0.1
-<<<<<<< HEAD
-  google_fonts: ^3.0.1
-=======
   pull_to_refresh: ^2.0.0
->>>>>>> f2d0300c92b5f9b001f652ccefb23c9e173f6c01
 
 dev_dependencies:
   flutter_test:
