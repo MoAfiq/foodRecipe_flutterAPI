@@ -139,6 +139,17 @@ class RecipeClass {
         totalDaily: Map.from(json["totalDaily"])
             .map((k, v) => MapEntry<String, Total>(k, Total.fromMap(v))),
       );
+
+  static List recipesFromSnapshot(List snapshot) {
+    return snapshot.map((data) {
+      return RecipeClass.fromJson(data);
+    }).toList();
+  }
+
+  @override
+  String toString() {
+    return 'Recipe {name: $label, image: $image, rating: $dietLabels, totalTime: $totalTime';
+  }
 }
 
 class Images {

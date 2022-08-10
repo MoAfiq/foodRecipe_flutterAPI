@@ -3,30 +3,51 @@ import 'package:food_recipe_project/models/foodRecipe_models.dart';
 import 'package:food_recipe_project/utils/recipe_card.dart';
 
 class FoodRecipeInformation extends StatelessWidget {
-  const FoodRecipeInformation({Key? key, required this.foodRecipe})
+  FoodRecipeInformation(
+      {Key? key, required this.foodRecipe, required this.recipes})
       : super(key: key);
 
-  List<Hit> _recipes;
-  bool _isLoading = true;
-
+  List<RecipeClass> recipes = [];
   final FoodRecipe foodRecipe;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getRecipes();
+  // }
+  //
+  // Future<void> getRecipes() async {
+  //   recipes = await FoodRecipeService.fetchFoodRecipeInformation();
+  //   setState(() {
+  //     _isLoading = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    var index = 0;
+    print('Check check check 123 123 123');
     return Scaffold(
-      body: _isLoading
-      ? Center(child: CircularProgressIndicator())
-      : ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return RecipeCard(
-                title: _recipes[index].name,
-                cookTime: _recipes[index].totalTime,
-                rating: _recipes[index].rating.toString(),
-                thumbnailUrl: _recipes[index].thumbnailUrl,
-                thumbnailURL: _recipes[index].thumbnailURL)
-          }),
-    );
+        body: Column(
+      children: <Widget>[
+        Image.network(
+            'https://api.edamam.com/api/recipes/v2/${foodRecipe.hits.first.recipe.image}'),
+        ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: recipes.length,
+            itemBuilder: (context, index) {
+              return RecipeCard(
+                title: recipes[index].label,
+                cookTime: recipes[index].totalTime.toString(),
+                rating: recipes[index].cuisineType.toString(),
+                thumbnailUrl: recipes[index].calories.toString(),
+              );
+            }),
+        Text(
+            '${foodRecipe.to} checking<><><> ${foodRecipe.count} <><><>checking<><><> ${recipes.first.label}'),
+      ],
+    ));
     //   child: Column(
     //     children: [
     //       const SizedBox(
