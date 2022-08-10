@@ -28,7 +28,12 @@ class FoodRecipeDetail extends StatelessWidget {
             }
 
             if (state is FoodRecipeLoaded) {
-              return FoodRecipeInformation(foodRecipe: state.foodRecipe);
+              print(state.foodRecipe.count);
+              print('Checking whether the food recipe is loaded');
+              return FoodRecipeInformation(
+                foodRecipe: state.foodRecipe,
+                recipes: [],
+              );
             }
 
             return Text(state is FoodRecipeError
