@@ -16,10 +16,11 @@ class FoodRecipeService {
           'app_id': apiId,
           'app_key': appKey,
         });
-
+    print("Request to ${url.toString()}");
     http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
+      print(response.body);
       return FoodRecipe.fromJson(response.body);
     } else {
       throw Exception('Failed to load Food Recipe information.');
