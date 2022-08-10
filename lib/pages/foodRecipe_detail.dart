@@ -8,6 +8,14 @@ class FoodRecipeDetail extends StatelessWidget {
   const FoodRecipeDetail({Key? key, required this.foodName}) : super(key: key);
   final String foodName;
 
+  //Capitalize each words that deems suitable in the UI
+  String allWordsCapitilize(String str) {
+    return str.toLowerCase().split(' ').map((word) {
+      String leftText = (word.length > 1) ? word.substring(1, word.length) : '';
+      return word[0].toUpperCase() + leftText;
+    }).join(' ');
+  }
+
   @override
   Widget build(BuildContext context) {
     FoodRecipeCubit cubit = BlocProvider.of<FoodRecipeCubit>(context)
@@ -15,13 +23,13 @@ class FoodRecipeDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Food Recipe Detail',
+        title: Text(
+          allWordsCapitilize('$foodName Recipe List'),
         ),
       ),
       body: Center(
         child: BlocBuilder<FoodRecipeCubit, FoodRecipeState>(
-          bloc: BlocProvider.of<FoodRecipeCubit>(context),
+          bloc: cubit,
           builder: (context, state) {
             if (state is FoodRecipeLoading) {
               return const CircularProgressIndicator();
