@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/onboardingpage/home_screen.dart';
 import 'package:food_recipe_project/onboardingpage/screen_merged.dart';
 import 'package:food_recipe_project/onboardingpage/screen_one.dart';
+import 'package:food_recipe_project/states/foodRecipe_cubit.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +15,10 @@ Future<void> main() async {
   initScreen = 0;
   //initScreen = preferences.getInt('initScreen');
   // await preferences.setInt('initScreen', 1);
-  runApp(MainOnboarding());
+  runApp(BlocProvider(
+    create: (context) => FoodRecipeCubit(),
+    child: MainOnboarding(),
+  ));
 }
 
 class MainOnboarding extends StatelessWidget {
