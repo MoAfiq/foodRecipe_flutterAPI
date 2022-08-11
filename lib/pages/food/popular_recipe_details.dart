@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipe_project/models/foodRecipe_models.dart';
 import 'package:food_recipe_project/widgets/app_icon.dart';
-import 'package:food_recipe_project/widgets/exandable_text_widget.dart';
-import '../../utils/colors.dart';
+import 'package:food_recipe_project/widgets/expandable_text_widget.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/big_text.dart';
@@ -24,6 +22,14 @@ class _PopularRecipeDetailsState extends State<PopularRecipeDetails> {
   late List foodDetailedRecipe;
   bool _isFavourite = false;
 
+  //Capitalize each words that deems suitable in the UI
+  String allWordsCapitilize(String str) {
+    return str.toLowerCase().split(' ').map((word) {
+      String leftText = (word.length > 1) ? word.substring(1, word.length) : '';
+      return word[0].toUpperCase() + leftText;
+    }).join(' ');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -33,8 +39,6 @@ class _PopularRecipeDetailsState extends State<PopularRecipeDetails> {
   @override
   Widget build(BuildContext context) {
     int index = widget.index;
-    print(
-        'Checking whether it works.... ${widget.foodName.hits[index].recipe.cuisineType}');
     return Scaffold(
         backgroundColor: Colors.white,
         body: Stack(
@@ -100,6 +104,16 @@ class _PopularRecipeDetailsState extends State<PopularRecipeDetails> {
                               AppColumn(
                                 text:
                                     '${widget.foodName.hits[index].recipe.label}',
+                                cuisineType: allWordsCapitilize(
+                                    '${widget.foodName.hits[index].recipe.cuisineType.join(', ')}'),
+                                calories:
+                                    ('${widget.foodName.hits[index].recipe.calories.toStringAsFixed(2)} cal'),
+                                dietLabels: allWordsCapitilize(
+                                    '${widget.foodName.hits[index].recipe.dietLabels.join(', ')}'),
+                                mealType: allWordsCapitilize(
+                                    '${widget.foodName.hits[index].recipe.mealType[0]}'),
+                                dishType: allWordsCapitilize(
+                                    '${widget.foodName.hits[index].recipe.dishType.join(', ')}'),
                               ),
                               IconButton(
                                 color: Colors.red,
@@ -159,7 +173,7 @@ class _PopularRecipeDetailsState extends State<PopularRecipeDetails> {
 //               decoration: BoxDecoration(
 //                   image: DecorationImage(
 //                       fit: BoxFit.cover,
-//                       image: AssetImage("assets/image/spaggheti.jpg"))),
+//                       image: AssetImage("assets/image/spaghetti.jpg"))),
 //             ),
 //           ),
 //           //icons widget

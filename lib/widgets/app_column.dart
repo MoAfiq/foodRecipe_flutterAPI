@@ -10,7 +10,20 @@ bool _isFavourite = false;
 
 class AppColumn extends StatelessWidget {
   final String text;
-  const AppColumn({Key? key, required this.text}) : super(key: key);
+  final String cuisineType;
+  final String calories;
+  final String dietLabels;
+  final String mealType;
+  final String dishType;
+  const AppColumn(
+      {Key? key,
+      required this.text,
+      required this.cuisineType,
+      required this.calories,
+      required this.dietLabels,
+      required this.mealType,
+      required this.dishType})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +31,7 @@ class AppColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: [
             BigText(
@@ -32,45 +45,38 @@ class AppColumn extends StatelessWidget {
         ),
         Row(
           children: [
-            Wrap(
-              children: List.generate(5, (index) {
-                return Icon(Icons.star, color: AppColors.mainColor, size: 15);
-              }),
-            ),
+            Text('$cuisineType'),
             SizedBox(
-              width: 10,
+              width: 20,
             ),
-            SmallText(text: "4.5"),
+            SmallText(text: '$mealType'),
             SizedBox(
-              width: 10,
+              width: 20,
             ),
-            SmallText(text: "1287"),
-            SizedBox(
-              width: 10,
-            ),
-            SmallText(text: "Comments"),
+            SmallText(text: '$calories'),
           ],
         ),
         SizedBox(
           height: Dimensions.height20,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconAndTextWidget(
-                icon: Icons.circle_sharp,
-                text: "Normal",
-                iconColor: AppColors.iconColor1),
-            IconAndTextWidget(
-                icon: Icons.location_on,
-                text: "1.7km",
-                iconColor: AppColors.mainColor),
-            IconAndTextWidget(
-                icon: Icons.timelapse,
-                text: "32min",
-                iconColor: AppColors.iconColor1)
-          ],
+        IconAndTextWidget(
+            icon: Icons.set_meal_rounded,
+            text: '$dietLabels',
+            iconColor: AppColors.yellowColor),
+        SizedBox(
+          height: Dimensions.height10,
         ),
+        IconAndTextWidget(
+            icon: Icons.location_on,
+            text: '$dishType',
+            iconColor: AppColors.mainColor),
+        SizedBox(
+          height: Dimensions.height10,
+        ),
+        IconAndTextWidget(
+            icon: Icons.timelapse,
+            text: "32min",
+            iconColor: AppColors.iconColor1)
       ],
     );
   }

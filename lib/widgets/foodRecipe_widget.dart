@@ -24,7 +24,7 @@ class FoodRecipeInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Check check check 123 123 123');
+    // print('Check check check 123 123 123');
     return Container(
         child: Column(
       children: <Widget>[
