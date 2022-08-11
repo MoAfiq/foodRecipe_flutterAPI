@@ -10,8 +10,7 @@ class FoodRecipeDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FoodRecipeCubit cubit = BlocProvider.of<FoodRecipeCubit>(context)
-      ..fetchFoodRecipe(foodName);
+    FoodRecipeCubit cubit = FoodRecipeCubit()..fetchFoodRecipe(foodName);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,7 +20,7 @@ class FoodRecipeDetail extends StatelessWidget {
       ),
       body: Center(
         child: BlocBuilder<FoodRecipeCubit, FoodRecipeState>(
-          bloc: BlocProvider.of<FoodRecipeCubit>(context),
+          bloc: cubit,
           builder: (context, state) {
             if (state is FoodRecipeLoading) {
               return const CircularProgressIndicator();

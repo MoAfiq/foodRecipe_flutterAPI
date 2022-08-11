@@ -33,6 +33,9 @@ dependencies:
   dots_indicator: ^2.0.0
   curved_navigation_bar: ^1.0.3
   folding_cell: ^1.0.2
+  lottie: ^1.4.1
+  shared_preferences: ^2.0.15
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,9 +63,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-      - assets/image/spaggheti.jpg
-      - assets/image/food2.jpg
-      - assets/image/aboutus.png
+    - assets/image/spaggheti.jpg
+    - assets/image/food2.jpg
+    - assets/image/aboutus.png
+    - assets/image/searching.png
+    - assets/image/ingredient.png
+    - assets/image/goodtogo.png
+    - assets/image/BusinessIntro.gif
+    - assets/image/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -76,17 +84,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-#  fonts:
-#    - family: Roboto
-#      fonts:
-#        - asset: assets/font/Roboto-Regular.ttf
-#          weight: 400
-#        - asset: assets/font/Roboto-Medium.ttf
-#          weight: 500
-#        - asset: assets/font/Roboto-Bold.ttf
-#          weight: 700
-#        - asset: assets/font/Roboto-Black.ttf
-#          weight: 900
+  fonts:
+      - family: Aldrich
+        fonts:
+          - asset: assets/font/Aldrich-Regular.ttf
+            weight: 400
+  #        - asset: assets/font/Roboto-Medium.ttf
+  #          weight: 500
+  #        - asset: assets/font/Roboto-Bold.ttf
+  #          weight: 700
+  #        - asset: assets/font/Roboto-Black.ttf
+  #          weight: 900
 
 
 
