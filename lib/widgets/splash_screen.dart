@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../onboardingpage/screen_merged.dart';
 import 'menutest.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
     //set time to load the new page
 
     Future.delayed(Duration(seconds: 10), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Menu()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => OnboardingScreenv2()));
     });
     super.initState();
   }
@@ -48,8 +49,12 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              "Dodo",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              "Welcome To Foodies",
+              style: TextStyle(
+                  fontFamily: 'Lobster Two',
+                  fontSize: 26,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white),
             ),
           ],
         ),
