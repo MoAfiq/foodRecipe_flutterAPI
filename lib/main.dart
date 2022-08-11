@@ -12,6 +12,7 @@ void main() {
     create: (context) => FoodRecipeCubit(),
     child: const MyApp(),
   ));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -26,6 +27,5 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.amber,
         ),
         home: MainFoodPage());
-
   }
 }
