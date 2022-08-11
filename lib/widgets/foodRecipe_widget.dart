@@ -36,11 +36,13 @@ class FoodRecipeInformation extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () => {
+                  print(index),
                   print(foodRecipe.hits[index].recipe.label),
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => PopularRecipeDetails(
+                              index: index,
                               foodName: foodRecipe,
                             )),
                   )

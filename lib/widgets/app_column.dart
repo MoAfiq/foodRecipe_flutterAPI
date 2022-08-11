@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipe_project/widgets/small_text.dart';
-
 import '../utils/colors.dart';
 import '../utils/dimensions.dart';
 import 'big_text.dart';
 import 'icon_and_text_widget.dart';
+
+bool _isFavourite = false;
 
 class AppColumn extends StatelessWidget {
   final String text;
@@ -16,9 +17,15 @@ class AppColumn extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BigText(
-          text: text,
-          size: Dimensions.font26,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            BigText(
+              text: text,
+              size: Dimensions.font26,
+            ),
+          ],
         ),
         SizedBox(
           height: Dimensions.height10,
@@ -59,9 +66,9 @@ class AppColumn extends StatelessWidget {
                 text: "1.7km",
                 iconColor: AppColors.mainColor),
             IconAndTextWidget(
-                icon: Icons.access_time_rounded,
+                icon: Icons.timelapse,
                 text: "32min",
-                iconColor: AppColors.iconColor2)
+                iconColor: AppColors.iconColor1)
           ],
         ),
       ],
