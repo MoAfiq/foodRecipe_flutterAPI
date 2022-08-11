@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class RecipeCard extends StatelessWidget {
   final String title;
-  final String cuisinType;
+  final String cuisineType;
   final String cookTime;
   final String thumbnailUrl;
   RecipeCard({
     required this.title,
     required this.cookTime,
-    required this.cuisinType,
+    required this.cuisineType,
     required this.thumbnailUrl,
   });
   @override
@@ -77,7 +77,7 @@ class RecipeCard extends StatelessWidget {
                         size: 18,
                       ),
                       const SizedBox(width: 7),
-                      Text(cuisinType),
+                      Text(cuisineType),
                     ],
                   ),
                 ),
