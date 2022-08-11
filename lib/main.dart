@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_project/onboardingpage/onboardingmain.dart';
+import 'package:food_recipe_project/pages/aboutus/aboutus_mainpage.dart';
 import 'package:food_recipe_project/pages/foodRecipe_detail.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  fishyMain();
+//  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FoodRecipeDetail(
-        foodName: '',
-      ),
+      home: AboutUs(),
     );
   }
 }
