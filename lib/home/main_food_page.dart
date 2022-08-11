@@ -110,7 +110,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                                 ),
                                 actions: [
                                   ElevatedButton(
-                                    child: Text('Search'),
+                                    child: Text(''),
                                     onPressed: _isFoodNameEmpty
                                         ? null
                                         : () {

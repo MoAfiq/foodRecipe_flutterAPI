@@ -66,9 +66,9 @@ flutter:
     - assets/image/spaggheti.jpg
     - assets/image/food2.jpg
     - assets/image/aboutus.png
-    - assets/image/searching.png
-    - assets/image/ingredient.png
-    - assets/image/goodtogo.png
+    - assets/image/searchingpic.png
+    - assets/image/ingredientpic.png
+    - assets/image/goodtogopic.png
     - assets/image/BusinessIntro.gif
     - assets/image/
 
@@ -95,6 +95,17 @@ flutter:
   #          weight: 700
   #        - asset: assets/font/Roboto-Black.ttf
   #          weight: 900
+
+      - family: Lobster Two
+        fonts:
+          - asset: assets/font/LobsterTwo-Regular.ttf
+            weight: 400
+        #        - asset: assets/font/Roboto-Medium.ttf
+        #          weight: 500
+        #        - asset: assets/font/Roboto-Bold.ttf
+        #          weight: 700
+        #        - asset: assets/font/Roboto-Black.ttf
+        #          weight: 900
 
 
 

@@ -110,13 +110,13 @@ List<Widget> _pageOne(BuildContext context) {
 
   return [
     Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image(
-          width: size.width,
+          width: size.width / 0.5,
           height: size.height * 0.6,
-          fit: BoxFit.cover,
-          image: AssetImage('assets/image/searching.png'),
+          fit: BoxFit.fitWidth,
+          image: AssetImage('assets/image/searchingpic.png'),
         ),
         ClipPath(
           clipper: SlandingClipper(),
@@ -136,7 +136,7 @@ List<Widget> _pageOne(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              'SELECT ITEMS',
+              'SEARCH YOUR DESIRABLE FOOD',
               textAlign: TextAlign.end,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -148,8 +148,8 @@ List<Widget> _pageOne(BuildContext context) {
               height: size.height * 0.02,
             ),
             Text(
-              'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
-              textAlign: TextAlign.end,
+              'Foodies has tremendous of recipe that could be your next dinner or supper or breakfast or lunch. Search whatever you are craving now.',
+              textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 18,
               ),
@@ -178,10 +178,10 @@ List<Widget> _pageTwo(BuildContext context) {
           ),
         ),
         Image(
-          width: size.width,
+          width: size.width * 8,
           height: size.height * 0.6,
-          fit: BoxFit.cover,
-          image: const AssetImage('assets/image/ingredient.png'),
+          fit: BoxFit.fitWidth,
+          image: const AssetImage('assets/image/ingredientpic.png'),
         ),
       ],
     ),
@@ -194,7 +194,7 @@ List<Widget> _pageTwo(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'PURCHASE',
+              'RECIPES',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -206,8 +206,8 @@ List<Widget> _pageTwo(BuildContext context) {
               height: size.height * 0.02,
             ),
             const Text(
-              'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
-              textAlign: TextAlign.start,
+              'You do not need to write down any recipe because we provide you all the recipe that you need. It is never too late to have a good food.',
+              textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 18,
               ),
@@ -226,10 +226,10 @@ List<Widget> _pageThree(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Image(
-          width: size.width,
+          width: size.width / 0.5,
           height: size.height * 0.6,
-          fit: BoxFit.cover,
-          image: AssetImage('assets/image/goodtogo.png'),
+          fit: BoxFit.fitWidth,
+          image: AssetImage('assets/image/goodtogopic.png'),
         ),
         Transform(
           alignment: Alignment.center,
@@ -253,7 +253,7 @@ List<Widget> _pageThree(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'DELIVERY',
+              'ENJOY',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -265,8 +265,8 @@ List<Widget> _pageThree(BuildContext context) {
               height: size.height * 0.02,
             ),
             Text(
-              'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
-              textAlign: TextAlign.start,
+              'A cookbook must have recipes, but it should not be a blueprint. It should be more inspirational; it should be a guide. Your good to go now.',
+              textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 18,
               ),
