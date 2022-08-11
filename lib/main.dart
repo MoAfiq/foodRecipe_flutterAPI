@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/home/main_food_page.dart';
+import 'package:food_recipe_project/onboardingpage/onboardingmain.dart';
+import 'package:food_recipe_project/pages/aboutus/aboutus_mainpage.dart';
 import 'package:food_recipe_project/pages/foodRecipe_detail.dart';
 import 'package:food_recipe_project/states/foodRecipe_cubit.dart';
 import 'package:get/get.dart';
@@ -10,7 +12,6 @@ void main() {
     create: (context) => FoodRecipeCubit(),
     child: const MyApp(),
   ));
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,5 +26,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.amber,
         ),
         home: MainFoodPage());
+
   }
 }

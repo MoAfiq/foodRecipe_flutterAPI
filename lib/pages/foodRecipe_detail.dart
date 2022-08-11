@@ -18,8 +18,7 @@ class FoodRecipeDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FoodRecipeCubit cubit = BlocProvider.of<FoodRecipeCubit>(context)
-      ..fetchFoodRecipe(foodName);
+    FoodRecipeCubit cubit = FoodRecipeCubit()..fetchFoodRecipe(foodName);
 
     return Scaffold(
       appBar: AppBar(
