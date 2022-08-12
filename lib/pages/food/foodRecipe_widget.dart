@@ -20,12 +20,9 @@ class FoodRecipeInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print('Check check check 123 123 123');
     return Container(
         child: Column(
       children: <Widget>[
-        // Expanded(
-        //     child: BlocBuilder<FoodRecipeCubit, FoodRecipeState>(
         Expanded(
           child: ListView.builder(
             itemCount: foodRecipe.hits.length,

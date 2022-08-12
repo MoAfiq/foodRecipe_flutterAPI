@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/models/foodRecipe_models.dart';
+import 'package:food_recipe_project/states/bookmarks.dart';
 import 'package:food_recipe_project/widgets/app_icon.dart';
 import 'package:food_recipe_project/widgets/expandable_text_widget.dart';
 import '../../utils/dimensions.dart';
@@ -119,6 +121,9 @@ class _PopularRecipeDetailsState extends State<PopularRecipeDetails> {
                                   setState(() {
                                     _isFavourite = !_isFavourite;
                                   });
+                                  BlocProvider.of<BookmarkCubit>(context)
+                                      .addIntoBookmark(
+                                          widget.foodName, widget.index);
                                 },
                               ),
                             ],

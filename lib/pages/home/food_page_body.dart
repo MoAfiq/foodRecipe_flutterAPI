@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/pages/home/trending.dart';
@@ -16,7 +15,7 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
-    const list = ['chicken', 'burger', 'spaghetti', 'soup', 'beef'];
+    const list = ['tuna', 'burger', 'spaghetti', 'scallops', 'beef', 'sushi'];
 
     Random random = Random();
     int rand = random.nextInt(list.length);

@@ -9,8 +9,8 @@ class Favourites extends StatelessWidget {
   const Favourites({Key? key, required this.foodRecipe, required this.index})
       : super(key: key);
 
-  final String foodRecipe;
-  final int index;
+  final String? foodRecipe;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +26,21 @@ class Favourites extends StatelessWidget {
         ),
         backgroundColor: Colors.amber,
       ),
-      // body: Center(
-      //   child: BlocBuilder<BookmarkCubit, Set<FoodRecipe>>(
-      //     builder: ((context, state) {
-      //       return ListView.builder(
-      //         itemCount: state.length,
-      //         itemBuilder: (context, state) {
-      //           print(state);
-      //           return FavouriteList(
-      //             foodRecipe: foodRecipe.toString(), index: state,
-      //             // index: index,
-      //           );
-      //         },
-      //       );
-      //     }),
-      //   ),
-      // ),
+      body: Center(
+        child: BlocBuilder<BookmarkCubit, Set<FoodRecipe>>(
+          builder: ((context, state) {
+            return ListView.builder(
+              itemCount: state.length,
+              itemBuilder: (context, index) {
+                return FavouriteList(
+                  foodRecipe: state.elementAt(index), index: index,
+                  // index: index,
+                );
+              },
+            );
+          }),
+        ),
+      ),
     );
   }
 }
