@@ -9,8 +9,8 @@ class Favourites extends StatelessWidget {
   const Favourites({Key? key, required this.foodRecipe, required this.index})
       : super(key: key);
 
-  final String foodRecipe;
-  final int index;
+  final String? foodRecipe;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,6 @@ class Favourites extends StatelessWidget {
             return ListView.builder(
               itemCount: state.length,
               itemBuilder: (context, index) {
-                print(state);
                 return FavouriteList(
                   foodRecipe: state.elementAt(index), index: index,
                   // index: index,
