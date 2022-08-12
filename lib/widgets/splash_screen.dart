@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import '../onboardingpage/screen_merged.dart';
-import 'menutest.dart';
+import 'package:food_recipe_project/pages/onboardingpage/screen_merged.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,17 +14,18 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     //set time to load the new page
 
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 10), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => OnboardingScreenv2()));
+          MaterialPageRoute(builder: (context) => const OnboardingScreenv2()));
     });
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
@@ -47,8 +45,8 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 300,
               child: Lottie.asset("assets/image/foodcarousel.json"),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               "Welcome To Foodies",
               style: TextStyle(
                   fontFamily: 'Lobster Two',

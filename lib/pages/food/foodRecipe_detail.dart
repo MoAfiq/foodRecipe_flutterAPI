@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_project/states/foodRecipe_cubit.dart';
 import 'package:food_recipe_project/states/foodRecipe_state.dart';
-import 'package:food_recipe_project/widgets/foodRecipe_widget.dart';
+import 'package:food_recipe_project/pages/food/foodRecipe_widget.dart';
 
 class FoodRecipeDetail extends StatelessWidget {
   const FoodRecipeDetail({Key? key, required this.foodName}) : super(key: key);
@@ -36,6 +36,7 @@ class FoodRecipeDetail extends StatelessWidget {
 
             if (state is FoodRecipeLoaded) {
               print(state.foodRecipe.count);
+              print(' find me??');
               // print('Checking whether the food recipe is loaded');
               return FoodRecipeInformation(
                 foodRecipe: state.foodRecipe,

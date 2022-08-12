@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_recipe_project/onboardingpage/home_screen.dart';
-import 'package:food_recipe_project/onboardingpage/screen_merged.dart';
-import 'package:food_recipe_project/onboardingpage/screen_one.dart';
+import 'package:food_recipe_project/pages/onboardingpage/home_screen.dart';
+import 'package:food_recipe_project/pages/onboardingpage/screen_merged.dart';
+import 'package:food_recipe_project/pages/onboardingpage/screen_one.dart';
 import 'package:food_recipe_project/states/foodRecipe_cubit.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';

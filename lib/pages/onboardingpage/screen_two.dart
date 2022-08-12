@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'package:food_recipe_project/pages/onboardingpage/screen_three.dart';
+
 import 'components/slanding_clipper.dart';
 import 'constants/constants.dart';
 
-class OnboardingScreenThree extends StatelessWidget {
+class OnboardingScreenTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,15 +17,8 @@ class OnboardingScreenThree extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image(
-                  width: size.width,
-                  height: size.height * 0.6,
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/image/goodtogo.png'),
-                ),
-                Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.rotationY(math.pi),
+                RotatedBox(
+                  quarterTurns: 2,
                   child: ClipPath(
                     clipper: SlandingClipper(),
                     child: Container(
@@ -32,11 +26,17 @@ class OnboardingScreenThree extends StatelessWidget {
                       color: yellow,
                     ),
                   ),
-                )
+                ),
+                Image(
+                  width: size.width,
+                  height: size.height * 0.6,
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/image/ingredient.png'),
+                ),
               ],
             ),
             Positioned(
-              top: size.height * 0.65,
+              top: size.height * 0.05,
               child: Container(
                 width: size.width,
                 padding: EdgeInsets.all(appPadding),
@@ -44,7 +44,7 @@ class OnboardingScreenThree extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'DELIVERY',
+                      'PURCHASE',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -80,7 +80,7 @@ class OnboardingScreenThree extends StatelessWidget {
                     decoration: BoxDecoration(
                         border: Border.all(color: black, width: 2),
                         shape: BoxShape.circle,
-                        color: yellow),
+                        color: white),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: appPadding / 4),
@@ -125,10 +125,17 @@ class OnboardingScreenThree extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: appPadding),
                     child: FloatingActionButton(
-                      onPressed: () => print('Onboarding Done'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => OnboardingScreenThree(),
+                          ),
+                        );
+                      },
                       backgroundColor: white,
                       child: Icon(
-                        Icons.done_rounded,
+                        Icons.navigate_next_rounded,
                         color: black,
                         size: 30,
                       ),

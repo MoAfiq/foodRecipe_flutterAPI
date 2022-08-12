@@ -43,7 +43,7 @@ class FoldingCellSimpleDemo extends StatelessWidget {
             right: 10,
             bottom: 10,
             child: TextButton(
-              onPressed: () => _foldingCellKey?.currentState?.toggleFold(),
+              onPressed: () => _foldingCellKey.currentState?.toggleFold(),
               child: Text(
                 "CLICK",
               ),
@@ -84,7 +84,7 @@ class FoldingCellSimpleDemo extends StatelessWidget {
             right: 10,
             bottom: 10,
             child: TextButton(
-              onPressed: () => _foldingCellKey?.currentState?.toggleFold(),
+              onPressed: () => _foldingCellKey.currentState?.toggleFold(),
               child: Text(
                 "Close",
               ),
