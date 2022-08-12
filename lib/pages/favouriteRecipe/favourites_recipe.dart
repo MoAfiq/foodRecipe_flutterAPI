@@ -26,22 +26,22 @@ class Favourites extends StatelessWidget {
         ),
         backgroundColor: Colors.amber,
       ),
-      // body: Center(
-      //   child: BlocBuilder<BookmarkCubit, Set<FoodRecipe>>(
-      //     builder: ((context, state) {
-      //       return ListView.builder(
-      //         itemCount: state.length,
-      //         itemBuilder: (context, state) {
-      //           print(state);
-      //           return FavouriteList(
-      //             foodRecipe: foodRecipe.toString(), index: state,
-      //             // index: index,
-      //           );
-      //         },
-      //       );
-      //     }),
-      //   ),
-      // ),
+      body: Center(
+        child: BlocBuilder<BookmarkCubit, Set<FoodRecipe>>(
+          builder: ((context, state) {
+            return ListView.builder(
+              itemCount: state.length,
+              itemBuilder: (context, index) {
+                print(state);
+                return FavouriteList(
+                  foodRecipe: state.elementAt(index), index: index,
+                  // index: index,
+                );
+              },
+            );
+          }),
+        ),
+      ),
     );
   }
 }

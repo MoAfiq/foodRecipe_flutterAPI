@@ -1,6 +1,17 @@
 # food_recipe_project
 
-A new Flutter project.
+Besquare 2022
+Mobile Development Module
+
+Team Members:
+1. Amir Bin Zahari
+2. Derrick Abbasy
+3. Afiq Salleh
+
+Instruction
+1. Git clone the repo to your local 
+2. Run flutter pub get
+3. Run main.dart to start the app
 
 ## Getting Started
 
