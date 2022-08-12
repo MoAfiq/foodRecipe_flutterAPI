@@ -30,3 +30,16 @@ samples, guidance on mobile development, and a full API reference.
 
 Screenshots from the App
 
+[Screenshot ](foodies Screenshot/Screenshot_1660288016.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288018.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288019.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288026.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288029.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288038.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288055.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288058.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288084.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288096.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288107.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660288130.jpg)
+[Screenshot ](foodies Screenshot/Screenshot_1660287993.jpg)
