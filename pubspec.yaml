@@ -35,6 +35,8 @@ dependencies:
   folding_cell: ^1.0.2
   lottie: ^1.4.1
   shared_preferences: ^2.0.15
+  flutter_vector_icons: ^1.0.0
+
 
 
 
@@ -44,6 +46,11 @@ dependencies:
   http: ^0.13.5
   flutter_bloc: ^8.0.1
   pull_to_refresh: ^2.0.0
+  string_extensions: ^0.6.2
+  url_launcher: ^6.1.5
+  firebase_auth: ^1.0.1
+  firebase_core: ^1.0.2
+  bordered_text: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +77,7 @@ flutter:
     - assets/image/ingredientpic.png
     - assets/image/goodtogopic.png
     - assets/image/BusinessIntro.gif
+    - assets/image/profile.png
     - assets/image/
 
 
@@ -85,27 +93,32 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-      - family: Aldrich
-        fonts:
-          - asset: assets/font/Aldrich-Regular.ttf
-            weight: 400
-  #        - asset: assets/font/Roboto-Medium.ttf
-  #          weight: 500
-  #        - asset: assets/font/Roboto-Bold.ttf
-  #          weight: 700
-  #        - asset: assets/font/Roboto-Black.ttf
-  #          weight: 900
+    - family: Aldrich
+      fonts:
+        - asset: assets/font/Aldrich-Regular.ttf
+          weight: 400
+    #        - asset: assets/font/Roboto-Medium.ttf
+    #          weight: 500
+    #        - asset: assets/font/Roboto-Bold.ttf
+    #          weight: 700
+    #        - asset: assets/font/Roboto-Black.ttf
+    #          weight: 900
 
-      - family: Lobster Two
-        fonts:
-          - asset: assets/font/LobsterTwo-Regular.ttf
-            weight: 400
-        #        - asset: assets/font/Roboto-Medium.ttf
-        #          weight: 500
-        #        - asset: assets/font/Roboto-Bold.ttf
-        #          weight: 700
-        #        - asset: assets/font/Roboto-Black.ttf
-        #          weight: 900
+    - family: Lobster Two
+      fonts:
+        - asset: assets/font/LobsterTwo-Regular.ttf
+          weight: 400
+    - family: AquinoDemo
+      fonts:
+        - asset: assets/font/AquinoDemo.ttf
+    - family: Nisebuschgardens
+      fonts:
+        - asset: assets/font/Nisebuschgardens.ttf
+
+    - family: Nunito
+      fonts:
+        - asset: assets/font/NunitoBold.ttf
+
 
 
 

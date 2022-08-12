@@ -15,6 +15,7 @@ class AppColumn extends StatelessWidget {
   final String dietLabels;
   final String mealType;
   final String dishType;
+  final String source;
   const AppColumn(
       {Key? key,
       required this.text,
@@ -22,7 +23,8 @@ class AppColumn extends StatelessWidget {
       required this.calories,
       required this.dietLabels,
       required this.mealType,
-      required this.dishType})
+      required this.dishType,
+      required this.source})
       : super(key: key);
 
   @override
@@ -67,16 +69,14 @@ class AppColumn extends StatelessWidget {
           height: Dimensions.height10,
         ),
         IconAndTextWidget(
-            icon: Icons.location_on,
+            icon: Icons.fastfood_rounded,
             text: '$dishType',
             iconColor: AppColors.mainColor),
         SizedBox(
           height: Dimensions.height10,
         ),
         IconAndTextWidget(
-            icon: Icons.timelapse,
-            text: "32min",
-            iconColor: AppColors.iconColor1)
+            icon: Icons.source, text: '$source', iconColor: Colors.pink),
       ],
     );
   }

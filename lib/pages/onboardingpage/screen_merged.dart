@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_project/home/main_food_page.dart';
+import 'package:food_recipe_project/pages/home/main_food_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'components/slanding_clipper.dart';
 import 'constants/constants.dart';
@@ -128,26 +128,26 @@ List<Widget> _pageOne(BuildContext context) {
       ],
     ),
     Positioned(
-      top: size.height * 0.65,
+      top: size.height * 0.66,
       child: Container(
         width: size.width,
         padding: EdgeInsets.all(appPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              'SEARCH YOUR DESIRABLE FOOD',
+            const Text(
+              'SEARCH YOUR FOOD',
               textAlign: TextAlign.end,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: white,
-                fontSize: 30,
+                color: Colors.white,
+                fontSize: 25,
               ),
             ),
             SizedBox(
               height: size.height * 0.02,
             ),
-            Text(
+            const Text(
               'Foodies has tremendous of recipe that could be your next dinner or supper or breakfast or lunch. Search whatever you are craving now.',
               textAlign: TextAlign.justify,
               style: TextStyle(
@@ -252,7 +252,7 @@ List<Widget> _pageThree(BuildContext context) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'ENJOY',
               textAlign: TextAlign.start,
               style: TextStyle(
@@ -264,7 +264,7 @@ List<Widget> _pageThree(BuildContext context) {
             SizedBox(
               height: size.height * 0.02,
             ),
-            Text(
+            const Text(
               'A cookbook must have recipes, but it should not be a blueprint. It should be more inspirational; it should be a guide. Your good to go now.',
               textAlign: TextAlign.justify,
               style: TextStyle(

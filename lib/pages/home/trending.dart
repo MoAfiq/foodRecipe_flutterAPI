@@ -1,12 +1,13 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipe_project/models/foodRecipe_models.dart';
-
-import '../utils/colors.dart';
-import '../utils/dimensions.dart';
-import '../widgets/big_text.dart';
-import '../widgets/icon_and_text_widget.dart';
-import '../widgets/small_text.dart';
+import 'package:food_recipe_project/pages/food/popular_recipe_details.dart';
+import 'package:food_recipe_project/utils/colors.dart';
+import 'package:food_recipe_project/utils/dimensions.dart';
+import 'package:food_recipe_project/widgets/icon_and_text_widget.dart';
+import 'package:food_recipe_project/widgets/big_text.dart';
+import 'package:food_recipe_project/widgets/small_text.dart';
 
 class Trending extends StatefulWidget {
   const Trending({Key? key, required this.trend}) : super(key: key);
@@ -37,12 +38,18 @@ class _TrendingState extends State<Trending> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          'RECOMMENDED DISHES',
-          style: TextStyle(
+        BorderedText(
+          strokeColor: Colors.black,
+          strokeWidth: 2.0,
+          child: Text(
+            'RECOMMENDED DISHES',
+            style: TextStyle(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.bold,
-              fontSize: 20),
+              fontSize: 20,
+              color: Colors.amber,
+            ),
+          ),
         ),
         //slider section
         Container(
@@ -52,7 +59,19 @@ class _TrendingState extends State<Trending> {
               controller: pageController,
               itemCount: 5,
               itemBuilder: (context, position) {
-                return _buildPageItem(position);
+                return GestureDetector(
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PopularRecipeDetails(
+                                foodName: widget.trend,
+                                index: position,
+                              )),
+                    )
+                  },
+                  child: _buildPageItem(position),
+                );
               }),
         ),
         //dots
@@ -102,78 +121,90 @@ class _TrendingState extends State<Trending> {
 
         //list of food and images that are trending
         Container(
-          height: 800,
+          height: 600,
           child: ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(
-                    left: Dimensions.width20,
-                    right: Dimensions.width20,
-                    bottom: Dimensions.height10),
-                child: Row(
-                  children: [
-                    //Image Section
-                    Container(
-                      width: 120,
-                      height: 120,
-                      child: Image.network(
-                          '${widget.trend.hits[index + 10].recipe.image}'),
-                    ),
-                    //Text Container
-                    Expanded(
-                      child: Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius20),
-                              bottomRight:
-                                  Radius.circular(Dimensions.radius20)),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              left: Dimensions.width10,
-                              right: Dimensions.width10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              BigText(
-                                  text:
-                                      "${widget.trend.hits[index + 10].recipe.label}"),
-                              SizedBox(
-                                height: Dimensions.height10,
-                              ),
-                              SmallText(
-                                  text:
-                                      "${widget.trend.hits[index + 10].recipe.cuisineType[0]} Cuisine"),
-                              SizedBox(
-                                height: Dimensions.height10,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconAndTextWidget(
-                                      icon: Icons.person,
-                                      text:
-                                          "${widget.trend.hits[index + 10].recipe.source}",
-                                      iconColor: AppColors.iconColor1),
-                                  IconAndTextWidget(
-                                      icon: Icons.restaurant,
-                                      text:
-                                          "${widget.trend.hits[index + 10].recipe.mealType[0]}",
-                                      iconColor: AppColors.mainColor),
-                                ],
-                              )
-                            ],
+              return GestureDetector(
+                onTap: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PopularRecipeDetails(
+                              foodName: widget.trend,
+                              index: index + 10,
+                            )),
+                  )
+                },
+                child: Container(
+                  margin: EdgeInsets.only(
+                      left: Dimensions.width20,
+                      right: Dimensions.width20,
+                      bottom: Dimensions.height10),
+                  child: Row(
+                    children: [
+                      //Image Section
+                      Container(
+                        width: 120,
+                        height: 120,
+                        child: Image.network(
+                            '${widget.trend.hits[index + 10].recipe.image}'),
+                      ),
+                      //Text Container
+                      Expanded(
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimensions.radius20),
+                                bottomRight:
+                                    Radius.circular(Dimensions.radius20)),
+                            color: Colors.white,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: Dimensions.width10,
+                                right: Dimensions.width10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                BigText(
+                                    text:
+                                        "${widget.trend.hits[index + 10].recipe.label}"),
+                                SizedBox(
+                                  height: Dimensions.height10,
+                                ),
+                                SmallText(
+                                    text:
+                                        "${widget.trend.hits[index + 10].recipe.cuisineType[0]} Cuisine"),
+                                SizedBox(
+                                  height: Dimensions.height10,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconAndTextWidget(
+                                        icon: Icons.person,
+                                        text:
+                                            "${widget.trend.hits[index + 10].recipe.source}",
+                                        iconColor: AppColors.iconColor1),
+                                    IconAndTextWidget(
+                                        icon: Icons.restaurant,
+                                        text:
+                                            "${widget.trend.hits[index + 10].recipe.mealType[0]}",
+                                        iconColor: AppColors.mainColor),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               );
             },
@@ -251,7 +282,7 @@ class _TrendingState extends State<Trending> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic),
+                            fontStyle: FontStyle.normal),
                       ),
                     ),
                     SizedBox(
@@ -261,38 +292,38 @@ class _TrendingState extends State<Trending> {
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                                 'Recipe by: ${widget.trend.hits[index].recipe.source}',
                                 style: TextStyle(
                                     fontSize: 15,
-                                    fontStyle: FontStyle.italic,
+                                    fontStyle: FontStyle.normal,
                                     fontWeight: FontWeight.bold)),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                                'Origin: ${widget.trend.hits[index].recipe.cuisineType[0]}',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                                'Suitable for: ${widget.trend.hits[index].recipe.mealType[0]}',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontStyle: FontStyle.italic,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: [
+                        //     Text(
+                        //         'Origin: ${widget.trend.hits[index].recipe.cuisineType[0]}',
+                        //         style: TextStyle(
+                        //             fontSize: 15,
+                        //             fontStyle: FontStyle.italic,
+                        //             fontWeight: FontWeight.bold)),
+                        //   ],
+                        // ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: [
+                        //     Text(
+                        //         'Suitable for: ${widget.trend.hits[index].recipe.mealType[0]}',
+                        //         style: TextStyle(
+                        //             fontSize: 15,
+                        //             fontStyle: FontStyle.italic,
+                        //             fontWeight: FontWeight.bold)),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ],

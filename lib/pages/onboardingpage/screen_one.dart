@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_recipe_project/onboardingpage/screen_two.dart';
+import 'package:food_recipe_project/pages/onboardingpage/screen_two.dart';
 
 import 'components/slanding_clipper.dart';
 import 'constants/constants.dart';
@@ -22,7 +22,7 @@ class OnboardingScreenOne extends StatelessWidget {
                   width: size.width,
                   height: size.height * 0.6,
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/image/searching.png'),
+                  image: const AssetImage('assets/image/searching.png'),
                 ),
                 ClipPath(
                   clipper: SlandingClipper(),
@@ -37,11 +37,11 @@ class OnboardingScreenOne extends StatelessWidget {
               top: size.height * 0.65,
               child: Container(
                 width: size.width,
-                padding: EdgeInsets.all(appPadding),
+                padding: const EdgeInsets.all(appPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
+                    const Text(
                       'SELECT ITEMS',
                       textAlign: TextAlign.end,
                       style: TextStyle(
@@ -53,7 +53,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     SizedBox(
                       height: size.height * 0.02,
                     ),
-                    Text(
+                    const Text(
                       'Lorem Ipsum is simply dummy \ntext of the printing and typesetting industry.',
                       textAlign: TextAlign.end,
                       style: TextStyle(
@@ -72,7 +72,8 @@ class OnboardingScreenOne extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: appPadding / 4),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: appPadding / 4),
                     width: 15,
                     height: 15,
                     decoration: BoxDecoration(
@@ -81,7 +82,8 @@ class OnboardingScreenOne extends StatelessWidget {
                         color: white),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: appPadding / 4),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: appPadding / 4),
                     width: 15,
                     height: 15,
                     decoration: BoxDecoration(
@@ -90,7 +92,8 @@ class OnboardingScreenOne extends StatelessWidget {
                         color: yellow),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: appPadding / 4),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: appPadding / 4),
                     width: 15,
                     height: 15,
                     decoration: BoxDecoration(
@@ -102,7 +105,7 @@ class OnboardingScreenOne extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: appPadding * 2),
+              padding: const EdgeInsets.symmetric(vertical: appPadding * 2),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +114,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () => print('Skip'),
-                      child: Text(
+                      child: const Text(
                         'Skip',
                         style: TextStyle(
                           color: black,
@@ -121,7 +124,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: appPadding),
+                    padding: const EdgeInsets.only(right: appPadding),
                     child: FloatingActionButton(
                       onPressed: () {
                         Navigator.push(
@@ -132,7 +135,7 @@ class OnboardingScreenOne extends StatelessWidget {
                         );
                       },
                       backgroundColor: white,
-                      child: Icon(
+                      child: const Icon(
                         Icons.navigate_next_rounded,
                         color: black,
                         size: 30,
